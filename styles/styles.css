@@ -104,7 +104,7 @@ html {
 }
 
 .about .about-img .about-img-wrapper {
-    margin-top: 30px;
+    margin-top: 50px;
     height: auto;
     max-width: 400px;
     position: relative;
@@ -114,4 +114,16 @@ html {
 .about .about-img .about-img-wrapper img {
     height: 100%;
     width: 100%;
+}
+
+.about .about-img .about-img-wrapper::after {
+    position: absolute;
+    content: '';
+    right: -5em;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 70%;
+    height: 120%;
+    background-color: rgba(34, 33, 33, 0.158);
+    z-index: -1;
 }
