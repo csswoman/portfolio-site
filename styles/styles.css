@@ -25,6 +25,7 @@ html {
     width: 100%;
     position: fixed;
     z-index: 100;
+    background-color: black;
 }
 
 .nav-bar{
@@ -61,6 +62,25 @@ html {
     height: 70px;
     width: 70px;
     transition: .3 ease transform;
+    cursor: pointer;
+}
+
+.nav-bar .nav-list .hamburger.active {
+    transform: rotate(360deg);
+}
+
+.nav-bar .nav-list .hamburger.active .bar:before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.nav-bar .nav-list .hamburger.active .bar:after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+.nav-bar .nav-list .hamburger.active .bar {
+    background-color: transparent;
 }
 
 .nav-bar .nav-list .hamburger .bar {
@@ -98,8 +118,9 @@ html {
     background-color: rgba(85, 85, 85, 0.534);
     padding: 5rem 0;
     transform: translateY(-100%);
-    transition: .3 ease transform;
+    transition: .3s ease transform;
     text-align: center;
+    z-index: -1;
 }
 
 .nav-bar .nav-list ul li {
@@ -124,16 +145,19 @@ html {
     transition: .3s ease transform;
 }
 
-.nav-bar .nav-list li a {
+.nav-bar .nav-list ul li a {
     font-size: 1.8rem;
     text-decoration: none;
     text-transform: uppercase;
     color: white;
     display: block;
     letter-spacing: .15rem;
-    padding: 2rem 0;
+    padding: 2rem 3rem;
 }
 
+.nav-bar .nav-list.open ul {
+    transform: translateY(90px);
+}
 
 .hero {
     min-height: 80vh;
@@ -190,7 +214,7 @@ html {
 
 .about {
     width: 100%;
-    min-width: 50vh;
+    min-height: 50vh;
     padding: 10rem 5rem;
     flex-direction: column;
 }
@@ -317,7 +341,7 @@ html {
 }
 
 .services .services-info .service .service-card .service-back {
-    transform: rotateY(100deg);
+    transform: rotateY(180deg);
 }
 
 .services .services-info .service .service-card .service-front i {
@@ -431,6 +455,26 @@ html {
 /* Media Queries for desktop and tab */
 
 @media only screen and (min-width: 768px){
+    .nav-bar .nav-list .hamburger {
+        display: none;
+    }
+
+    .nav-bar {
+        width: 80%;
+    }
+
+    .nav-bar .nav-list ul {
+        transform: translateX(0);
+        position: initial;
+        padding: 0;
+        z-index: initial;
+        background-color: transparent;
+    }
+
+    .nav-bar .nav-list ul li {
+        display: inline-block;
+    }
+
     .hero {
         height: 100vh;
         flex-direction: row;
